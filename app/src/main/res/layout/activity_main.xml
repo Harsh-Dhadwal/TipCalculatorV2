@@ -126,7 +126,7 @@
             </TableRow>
 
             <TableRow
-                android:padding="5dp">
+                android:padding="2dp">
                 <TextView
                     android:id="@+id/showTotal"
                     android:layout_width="fill_parent"
@@ -165,7 +165,7 @@
             </TableRow>
 
             <TableRow
-                android:padding="5dp">
+                android:padding="2dp">
                 <TextView
                     android:id="@+id/showSplitBill"
                     android:layout_width="fill_parent"

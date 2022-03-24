@@ -7,4 +7,6 @@
     <string name="split">Split</string>
     <string name="currencySign">$</string>
     <string name="settingsIcon">settingsIcon</string>
+    <string name="enter_tip_percent">Enter Tip Percent</string>
+    <string name="done">done</string>
 </resources>
