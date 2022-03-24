@@ -3,6 +3,7 @@ package au.jcu.edu.tipcalculatorv2;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
         splitPicker.setMinValue(1);
         splitPicker.setMaxValue(100);
         splitPicker.setValue(1);
+        splitPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                refreshDisplay();
+            }
+        });
 
         showTotal = findViewById(R.id.showTotal);
         showTipPercent = findViewById(R.id.showTipPercent);
@@ -44,19 +51,21 @@ public class MainActivity extends AppCompatActivity {
 
     void refreshDisplay(){
         String userBill = billInput.getText().toString();
-        inputAmount = Float.parseFloat(userBill);
 
         tipPercent = 10;
-        splitNum = 2;
+        if (!TextUtils.isEmpty(userBill)) {
+            inputAmount = Float.parseFloat(userBill);
+            splitNum = splitPicker.getValue();
 
-        calculator = new BillCalculator();
-        calculator.calculate(inputAmount, tipPercent, splitNum);
+            calculator = new BillCalculator();
+            calculator.calculate(inputAmount, tipPercent, splitNum);
 
-        totalBill = calculator.getTotalAmount();
-        perPersonBill = calculator.getPerPersonAmount();
+            totalBill = calculator.getTotalAmount();
+            perPersonBill = calculator.getPerPersonAmount();
 
-        showTotal.setText(String.format(Locale.getDefault(),"$%1.2f", totalBill));
-        showTipPercent.setText(String.format(Locale.getDefault(),"%d%%", tipPercent));
-        showSplitBill.setText(String.format(Locale.getDefault(),"$%1.2f", perPersonBill));
+            showTotal.setText(String.format(Locale.getDefault(), "$%1.2f", totalBill));
+            showTipPercent.setText(String.format(Locale.getDefault(), "%d%%", tipPercent));
+            showSplitBill.setText(String.format(Locale.getDefault(), "$%1.2f", perPersonBill));
+        }
     }
 }
