@@ -15,10 +15,10 @@ public class BillCalculatorTest {
         BillCalculator calculator = new BillCalculator();
         calculator.calculate(100, 10, 2);
 
-        float totalAmount = calculator.getTotalAmount();
+        float totalAmount = calculator.getTotalAmount(Boolean.FALSE);
         assertEquals(110, totalAmount, 0);
 
-        float perPersonAmount = calculator.getPerPersonAmount();
+        float perPersonAmount = calculator.getPerPersonAmount(Boolean.FALSE);
         assertEquals(55, perPersonAmount, 0);
 
     }

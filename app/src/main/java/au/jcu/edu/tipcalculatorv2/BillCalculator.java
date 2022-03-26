@@ -9,15 +9,27 @@ public class BillCalculator {
     void calculate(float billAmount, int tipPercent, int splitNum){
 
         float tipAmount = billAmount * tipPercent / 100;
-        this.totalAmount = (float) Math.ceil((billAmount + tipAmount)*10)/10;
-        this.perPersonAmount = (float) (Math.ceil((totalAmount / splitNum)*10)/10);
+        this.totalAmount = billAmount + tipAmount;
+        this.perPersonAmount = totalAmount / splitNum;
     }
 
-    float getTotalAmount(){
-        return this.totalAmount;
+    float getTotalAmount(Boolean roundUpCents){
+        if (roundUpCents){
+            return roundUp(this.totalAmount);
+        } else {
+            return this.totalAmount;
+        }
     }
 
-    float getPerPersonAmount(){
-        return this.perPersonAmount;
+    float getPerPersonAmount(Boolean roundUpCents){
+        if (roundUpCents){
+            return roundUp(this.perPersonAmount);
+        } else {
+            return this.perPersonAmount;
+        }
+    }
+
+    private float roundUp(float amount) {
+        return (float) (Math.ceil((amount)*10)/10);
     }
 }

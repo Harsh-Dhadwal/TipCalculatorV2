@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
             calculator = new BillCalculator();
             calculator.calculate(inputAmount, tipPercent, splitNum);
 
-            totalBill = calculator.getTotalAmount();
-            perPersonBill = calculator.getPerPersonAmount();
+            totalBill = calculator.getTotalAmount(Boolean.TRUE);
+            perPersonBill = calculator.getPerPersonAmount(Boolean.TRUE);
 
             showTotal.setText(String.format(Locale.getDefault(), "$%1.2f", totalBill));
             showTipPercent.setText(String.format(Locale.getDefault(), "%d%%", tipPercent));
