@@ -38,13 +38,13 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#B7E4C7">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:stretchColumns="*"
-            android:background="#B7E4C7">
+            android:stretchColumns="*">
 
             <TableRow
                 android:padding="5dp">
@@ -96,14 +96,14 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#B7E4C7">
 
         <TableLayout
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:stretchColumns="*"
-            android:background="#B7E4C7">
+            android:stretchColumns="*">
 
 
             <TableRow
